@@ -1,5 +1,6 @@
 "use client"
-// import "./global.css"
+import Footer from "./components/Footer";
+import "./global.css"
 import NavBar from "./components/NavBar";
 
 export default function RootLayout({
@@ -11,7 +12,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar/>
-        {children}
+
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+        
+        <Footer/>
       </body>
     </html>
   );
