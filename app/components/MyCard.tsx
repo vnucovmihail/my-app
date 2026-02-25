@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useRef, useState } from 'react';
+import { Box } from '@mui/material';
 
 export default function SimpleAudioCard() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -22,7 +23,14 @@ export default function SimpleAudioCard() {
   };
 
   return (
-    <Card sx={{ display: 'flex', width: 400 }}>
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      mt: 4, // отступ сверху
+    }}
+  >
+    <Card sx={{ display: "flex", width: 400 }}>
       <CardMedia
         component="img"
         sx={{ width: 151 }}
@@ -31,12 +39,15 @@ export default function SimpleAudioCard() {
       />
       <CardContent sx={{ flex: 1 }}>
         <Typography variant="h5">My september</Typography>
-        <Typography variant="subtitle1" color="text.secondary">Nastyona</Typography>
+        <Typography variant="subtitle1" color="text.secondary">
+          Nastyona
+        </Typography>
         <Button onClick={handlePlayPause} variant="contained" sx={{ mt: 2 }}>
           {isPlaying ? "Pause" : "Play"}
         </Button>
         <audio ref={audioRef} src="/audio/Nastyona - My september.mp3" />
       </CardContent>
     </Card>
-  );
+  </Box>
+);
 }
